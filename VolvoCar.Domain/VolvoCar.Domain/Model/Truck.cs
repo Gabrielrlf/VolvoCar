@@ -9,21 +9,15 @@ using System.Threading.Tasks;
 
 namespace VolvoCar.Domain.Model
 {
-    public class Truck
+    public class Truck : BaseEntity
     {
-        [Key]
-        [DisplayName("Id")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
-        [DisplayName("Modelo")]
-        [MaxLength(2)]
+        [Required, MaxLength(2), DisplayName("Modelo")]
         public string ModelName { get; set; }
 
-        [DisplayName("Ano modelo")]
+        [Required, DisplayName("Ano modelo")]
         public int YearModel { get; set; }
 
-        [DisplayName("Ano fab")]
-        public int YearFabrication { get; set; } 
+        [Required, DisplayName("Ano fab")]
+        public int YearFabrication { get; set; } = DateTime.Now.Year; 
     }
 }

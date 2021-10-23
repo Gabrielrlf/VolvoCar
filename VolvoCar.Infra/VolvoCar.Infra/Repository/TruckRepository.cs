@@ -24,12 +24,13 @@ namespace VolvoCar.Infra.Repository
             throw new NotImplementedException();
         }
 
+        public Truck FindById(int? id)
+        => _rep.FindById(id);
+
         public IQueryable<Truck> ListTruck()
         => _rep.List();
-        
+
         public void UpdateTruck(Truck obj)
-        {
-            throw new NotImplementedException();
-        }
+        => _rep.Update(obj);
     }
 }

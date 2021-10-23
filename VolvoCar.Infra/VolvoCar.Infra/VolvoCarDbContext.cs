@@ -15,7 +15,7 @@ namespace VolvoCar.Infra
         {
             modelBuilder.Entity<Truck>()
                 .HasData(
-                    new Truck() { Id = 1, ModelName = "FH", YearModel = 2022, YearFabrication = DateTime.Now.Year }
+                    new Truck() { Id = 1, ModelName = "FH", YearModel = 2022, YearFabrication = DateTime.Now.Year, CreationDate = DateTime.Now, UpdateDate = DateTime.Now }
                 );
         }
 

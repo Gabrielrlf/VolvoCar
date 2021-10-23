@@ -13,5 +13,6 @@ namespace VolvoCar.Infra.Interface
         void DeleteTruck(int id);
         void UpdateTruck(Truck obj);
         IQueryable<Truck> ListTruck();
+        Truck FindById(int? id);
     }
 }

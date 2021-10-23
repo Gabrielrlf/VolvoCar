@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VolvoCar.Domain.Model;
 
 namespace VolvoCar.Infra.Service.Interface
 {
@@ -12,6 +13,7 @@ namespace VolvoCar.Infra.Service.Interface
         void Create(T obj);
         void Update(T obj);
         void Delete(T obj);
+        T FindById(int? id);
 
     }
 }

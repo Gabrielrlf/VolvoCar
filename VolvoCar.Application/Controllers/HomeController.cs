@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using VolvoCar.Application.Models;
 using VolvoCar.Core;
+using VolvoCar.Domain.Exception;
 using VolvoCar.Domain.Model;
+using VolvoCar.SharedKernel;
 
 namespace VolvoCar.Application.Controllers
 {
@@ -23,13 +26,75 @@ namespace VolvoCar.Application.Controllers
             _bll = bll;
         }
 
-        public async Task<IActionResult> Index() => View(_bll.ListAllTruck());
+        public IActionResult Index() => View(_bll.ListAllTruck());
 
-        public IActionResult Privacy()
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        // GET: Trucks/Edit/5
+        public IActionResult Edit(int? id)
         {
-            return View();
+            try
+            {
+                if (id.Equals(null))
+                {
+                    return BadRequest();
+                }
+
+                Truck obj = _bll.FindObjectById(id);
+                return View(obj);
+            }
+            catch (Exception e)
+            {
+                new TruckException(e.Message);
+                return BadRequest();
+            }
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="truck"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ModelName,YearModel, YearFabrication, CreationDate, UpdateDate")] Truck truck)
+        {
+            TruckSK truckSK = new();
+            if (truckSK.InvalidId(truck.Id, id))
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _bll.UpdateTruck(truck);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    return NotFound();
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(truck);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public IActionResult Privacy => View();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VolvoCar.Domain.Model;
 using VolvoCar.Infra.Service.Interface;
 
 namespace VolvoCar.Infra.Service
@@ -29,6 +30,8 @@ namespace VolvoCar.Infra.Service
         {
             dbContext.DisposeAsync();
         }
+
+        public T FindById(int? id) => dbContext.Find<T>(id);
 
         public IQueryable<T> List()
         {
