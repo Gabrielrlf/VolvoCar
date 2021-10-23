@@ -15,13 +15,12 @@ namespace VolvoCar.Infra.Repository
         private readonly ServiceRepository<Truck> _rep = new ServiceRepository<Truck>();
 
         public void CreateTruck(Truck obj)
-        {
-            throw new NotImplementedException();
-        }
+        => _rep.Create(obj);
 
         public void DeleteTruck(int id)
         {
-            throw new NotImplementedException();
+            Truck truck = _rep.FindById(id);
+            _rep.Delete(truck);
         }
 
         public Truck FindById(int? id)

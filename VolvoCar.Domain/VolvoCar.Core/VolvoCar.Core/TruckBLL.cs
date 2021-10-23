@@ -12,7 +12,17 @@ namespace VolvoCar.Core
         private readonly TruckRepository _rep = new();
         public void RegisterTruck(Truck truck) => _rep.CreateTruck(truck);
 
-        public void DeleteTruck(int id) => _rep.DeleteTruck(id);
+        public void DeleteTruck(int id)
+        {
+            try
+            {
+                _rep.DeleteTruck(id);
+            }
+            catch (Exception e)
+            {
+                throw new TruckException(e.Message);
+            }
+        }
 
         public IQueryable<Truck> ListAllTruck() => _rep.ListTruck();
 
@@ -22,15 +32,15 @@ namespace VolvoCar.Core
             {
                 _rep.UpdateTruck(truck);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                throw e;
+                throw new TruckException(e.Message);
             }
         }
 
         public Truck FindObjectById(int? id)
         {
-           Truck truck = _rep.FindById(id);
+            Truck truck = _rep.FindById(id);
 
             if (truck.Equals(null))
                 throw new TruckException($"Não encontrado caminhão para o Id {id}");

@@ -16,6 +16,7 @@ namespace VolvoCar.Application.Controllers
 {
     public class HomeController : Controller
     {
+        private TruckSK truckSK = new();
         private readonly ILogger<HomeController> _logger;
 
         private readonly TruckBLL _bll;
@@ -54,6 +55,66 @@ namespace VolvoCar.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        // GET: Trucks/Delete/5
+        public IActionResult Delete(int? id)
+        {
+            try
+            {
+                if (id.Equals(null))
+                {
+                    return BadRequest();
+                }
+
+                Truck obj = _bll.FindObjectById(id);
+                return View(obj);
+            }
+            catch (Exception e)
+            {
+                new TruckException(e.Message);
+                return BadRequest();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        // POST: Trucks/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+
+            _bll.DeleteTruck(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        // GET: Trucks/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="truck"></param>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create([Bind("Id, ModelName, YearModel, YearFabrication, CreationDate, UpdateDate")] Truck truck)
+        {
+            if (ModelState.IsValid)
+            {
+                _bll.RegisterTruck(truck);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(truck);
+        }
 
         /// <summary>
         /// 
@@ -63,9 +124,8 @@ namespace VolvoCar.Application.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ModelName,YearModel, YearFabrication, CreationDate, UpdateDate")] Truck truck)
+        public IActionResult Edit(int id, [Bind("Id, ModelName, YearModel, YearFabrication, CreationDate, UpdateDate")] Truck truck)
         {
-            TruckSK truckSK = new();
             if (truckSK.InvalidId(truck.Id, id))
             {
                 return NotFound();

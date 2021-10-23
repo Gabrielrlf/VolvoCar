@@ -1,0 +1,45 @@
+﻿@model VolvoCar.Domain.Model.Truck
+
+@{
+    ViewData["Title"] = "Deletar";
+}
+
+<h3>
+    Tem certeza que deseja fazer a deleção do caminhão @Html.DisplayFor(model => model.Id)?
+</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ModelName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ModelName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.YearModel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YearModel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.YearFabrication)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YearFabrication)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar</a>
+    </form>
+</div>

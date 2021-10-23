@@ -23,7 +23,8 @@ namespace VolvoCar.Infra.Service
 
         public void Delete(T obj)
         {
-            throw new NotImplementedException();
+            dbContext.Remove(obj);
+            dbContext.SaveChanges();
         }
 
         public void Dispose()
