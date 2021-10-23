@@ -4,6 +4,24 @@
         <name>VolvoCar.Application</name>
     </assembly>
     <members>
+        <member name="T:VolvoCar.Application.Controllers.HomeController">
+            <summary>
+            Controller principal da aplicação
+            </summary>
+        </member>
+        <member name="M:VolvoCar.Application.Controllers.HomeController.#ctor(Microsoft.Extensions.Logging.ILogger{VolvoCar.Application.Controllers.HomeController},VolvoCar.Core.ITruckService)">
+            <summary>
+            Constructor da Controller, passando o TruckBLL e um Logger.
+            </summary>
+            <param name="logger"></param>
+            <param name="bll"></param>
+        </member>
+        <member name="M:VolvoCar.Application.Controllers.HomeController.Index">
+            <summary>
+            É o Index/pag home
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:VolvoCar.Application.Controllers.HomeController.Edit(System.Nullable{System.Int32})">
             <summary>
             
@@ -13,30 +31,35 @@
         </member>
         <member name="M:VolvoCar.Application.Controllers.HomeController.Delete(System.Nullable{System.Int32})">
             <summary>
-            
+            Chama a View do Delete
             </summary>
             <param name="id"></param>
         </member>
         <member name="M:VolvoCar.Application.Controllers.HomeController.DeleteConfirmed(System.Int32)">
             <summary>
-            
+            Deleção confirmada
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:VolvoCar.Application.Controllers.HomeController.Create">
+            <summary>
+            Chamará a view do Create
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:VolvoCar.Application.Controllers.HomeController.Create(VolvoCar.Domain.Model.Truck)">
             <summary>
-            
+            Fará a recuperação do Create e adicionar ao banco.
             </summary>
             <param name="truck"></param>
         </member>
         <member name="M:VolvoCar.Application.Controllers.HomeController.Edit(System.Int32,VolvoCar.Domain.Model.Truck)">
             <summary>
-            
+            Fará a recuperação do Edit e salvar.
             </summary>
             <param name="id"></param>
             <param name="truck"></param>
-            <returns></returns>
         </member>
         <member name="P:VolvoCar.Application.Controllers.HomeController.Privacy">
             <summary>

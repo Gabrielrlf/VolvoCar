@@ -7,7 +7,7 @@ using VolvoCar.Infra.Repository;
 
 namespace VolvoCar.Core
 {
-    public class TruckBLL
+    public class TruckService : ITruckService
     {
         private readonly TruckRepository _rep = new();
         public void RegisterTruck(Truck truck) => _rep.CreateTruck(truck);

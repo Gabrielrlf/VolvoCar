@@ -14,19 +14,32 @@ using VolvoCar.SharedKernel;
 
 namespace VolvoCar.Application.Controllers
 {
+    /// <summary>
+    /// Controller principal da aplicação
+    /// </summary>
     public class HomeController : Controller
     {
         private TruckSK truckSK = new();
         private readonly ILogger<HomeController> _logger;
 
-        private readonly TruckBLL _bll;
+        private readonly ITruckService _bll;
 
-        public HomeController(ILogger<HomeController> logger, TruckBLL bll)
+
+        /// <summary>
+        /// Constructor da Controller, passando o TruckBLL e um Logger.
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="bll"></param>
+        public HomeController(ILogger<HomeController> logger, ITruckService bll)
         {
             _logger = logger;
             _bll = bll;
         }
 
+        /// <summary>
+        /// É o Index/pag home
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index() => View(_bll.ListAllTruck());
 
 
@@ -35,7 +48,6 @@ namespace VolvoCar.Application.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // GET: Trucks/Edit/5
         public IActionResult Edit(int? id)
         {
             try
@@ -56,10 +68,9 @@ namespace VolvoCar.Application.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Chama a View do Delete
         /// </summary>
         /// <param name="id"></param>
-        // GET: Trucks/Delete/5
         public IActionResult Delete(int? id)
         {
             try
@@ -80,11 +91,10 @@ namespace VolvoCar.Application.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Deleção confirmada
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // POST: Trucks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
@@ -94,14 +104,17 @@ namespace VolvoCar.Application.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Trucks/Create
+        /// <summary>
+        /// Chamará a view do Create
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Create()
         {
             return View();
         }
 
         /// <summary>
-        /// 
+        /// Fará a recuperação do Create e adicionar ao banco.
         /// </summary>
         /// <param name="truck"></param>
         [HttpPost]
@@ -117,11 +130,10 @@ namespace VolvoCar.Application.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Fará a recuperação do Edit e salvar.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="truck"></param>
-        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, [Bind("Id, ModelName, YearModel, YearFabrication, CreationDate, UpdateDate")] Truck truck)
