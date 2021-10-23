@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolvoCar", "VolvoCar\VolvoCar.csproj", "{227004CD-F6B4-495F-A599-30EF7566EE7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{46272459-B1AF-4B5B-9630-226CACC2772C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{28679815-0E74-48B2-92C0-ADCDF22E7BB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedKernel", "SharedKernel", "{0C236520-D3D7-4C08-A51C-C7A6F37F3BB7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A7E1F67D-943E-4C57-95F0-E0B9B7692A37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolvoCar.Domain", "VolvoCar.Domain\VolvoCar.Domain\VolvoCar.Domain.csproj", "{BFFFEB0F-6B17-4788-992F-7E8E421D7EC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolvoCar.Infra", "VolvoCar.Infra\VolvoCar.Infra\VolvoCar.Infra.csproj", "{37DC9D69-DD43-4309-A845-B1BE9B857992}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "VolvoCar.SharedKernel\ClassLibrary1\ClassLibrary1.csproj", "{E9DDED8D-A3B6-4BAD-9B9F-F5065290D8B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{227004CD-F6B4-495F-A599-30EF7566EE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{227004CD-F6B4-495F-A599-30EF7566EE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{227004CD-F6B4-495F-A599-30EF7566EE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{227004CD-F6B4-495F-A599-30EF7566EE7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFFFEB0F-6B17-4788-992F-7E8E421D7EC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFFFEB0F-6B17-4788-992F-7E8E421D7EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFFFEB0F-6B17-4788-992F-7E8E421D7EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFFFEB0F-6B17-4788-992F-7E8E421D7EC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37DC9D69-DD43-4309-A845-B1BE9B857992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37DC9D69-DD43-4309-A845-B1BE9B857992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37DC9D69-DD43-4309-A845-B1BE9B857992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37DC9D69-DD43-4309-A845-B1BE9B857992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9DDED8D-A3B6-4BAD-9B9F-F5065290D8B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9DDED8D-A3B6-4BAD-9B9F-F5065290D8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9DDED8D-A3B6-4BAD-9B9F-F5065290D8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9DDED8D-A3B6-4BAD-9B9F-F5065290D8B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BFFFEB0F-6B17-4788-992F-7E8E421D7EC8} = {28679815-0E74-48B2-92C0-ADCDF22E7BB4}
+		{37DC9D69-DD43-4309-A845-B1BE9B857992} = {46272459-B1AF-4B5B-9630-226CACC2772C}
+		{E9DDED8D-A3B6-4BAD-9B9F-F5065290D8B4} = {0C236520-D3D7-4C08-A51C-C7A6F37F3BB7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A1B2020-EE15-4FC9-B46E-62606B90FEF4}
+	EndGlobalSection
+EndGlobal
