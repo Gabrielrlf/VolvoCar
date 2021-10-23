@@ -1,0 +1,50 @@
+﻿@model IEnumerable<VolvoCar.Domain.Model.Truck>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>VolvoCar</h1>
+
+<p>
+    <a asp-action="Create">Adicionar novo caminhão</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ModelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearFabrication)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModelName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearFabrication)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

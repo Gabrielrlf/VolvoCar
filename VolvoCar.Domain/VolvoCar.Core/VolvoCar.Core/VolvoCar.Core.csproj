@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\VolvoCar.Infra\VolvoCar.Infra\VolvoCar.Infra.csproj" />
+    <ProjectReference Include="..\..\VolvoCar.Domain\VolvoCar.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

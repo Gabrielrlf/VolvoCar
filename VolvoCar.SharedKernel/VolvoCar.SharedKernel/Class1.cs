@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ClassLibrary1
+namespace VolvoCar.SharedKernel
 {
     public class Class1
     {
