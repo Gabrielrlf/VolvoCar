@@ -24,6 +24,7 @@ namespace VolvoCar.Application
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<ITruckService, TruckService>();
+            services.AddScoped<ITruckRepository, TruckRepository>();
             services.AddControllersWithViews();
         }
 

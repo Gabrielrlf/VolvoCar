@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\VolvoCar.Infra\VolvoCar.Infra\VolvoCar.Infra.csproj" />
+    <ProjectReference Include="..\..\..\VolvoCar.SharedKernel\VolvoCar.SharedKernel\VolvoCar.SharedKernel.csproj" />
     <ProjectReference Include="..\..\VolvoCar.Domain\VolvoCar.Domain.csproj" />
   </ItemGroup>
 

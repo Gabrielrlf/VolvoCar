@@ -9,7 +9,7 @@ namespace VolvoCar.Core
 {
     public interface ITruckService
     {
-        void RegisterTruck(Truck truck);
+        bool RegisterTruck(Truck truck);
         void DeleteTruck(int id);
         IQueryable<Truck> ListAllTruck();
         void UpdateTruck(Truck truck);

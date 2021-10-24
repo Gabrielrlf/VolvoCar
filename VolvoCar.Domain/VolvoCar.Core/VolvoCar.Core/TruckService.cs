@@ -3,14 +3,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using VolvoCar.Domain.Exception;
 using VolvoCar.Domain.Model;
+using VolvoCar.Infra.Interface;
 using VolvoCar.Infra.Repository;
+using VolvoCar.SharedKernel;
 
 namespace VolvoCar.Core
 {
     public class TruckService : ITruckService
     {
-        private readonly TruckRepository _rep = new();
-        public void RegisterTruck(Truck truck) => _rep.CreateTruck(truck);
+        TruckSK truckSK = new();
+        private readonly ITruckRepository _rep;
+
+        public TruckService(ITruckRepository rep) => _rep = rep;
+        public bool RegisterTruck(Truck truck)
+        {
+            truckSK.ValidatedTruck(truck);
+
+            _rep.CreateTruck(truck);
+            return true;
+        }
 
         public void DeleteTruck(int id)
         {
