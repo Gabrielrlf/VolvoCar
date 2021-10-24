@@ -9,7 +9,7 @@ namespace VolvoCar.Infra
         public DbSet<Truck> Truck { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-         => options.UseSqlite(@"Data Source=C:\dados\Volvocar.db");
+         => options.UseSqlite("Data Source=Volvocar.db");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

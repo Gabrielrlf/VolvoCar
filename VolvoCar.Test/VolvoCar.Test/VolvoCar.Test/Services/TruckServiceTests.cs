@@ -34,5 +34,7 @@ namespace VolvoCar.Test.Services
         {
             Assert.True(truckService.RegisterTruck(truck));
         }
+
+
     }
 }
