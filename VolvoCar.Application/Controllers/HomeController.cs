@@ -2,10 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using VolvoCar.Application.Models;
 using VolvoCar.Core;
 using VolvoCar.Domain.Exception;
@@ -157,11 +154,6 @@ namespace VolvoCar.Application.Controllers
             }
             return View(truck);
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public IActionResult Privacy => View();
 
         /// <summary>
         /// 

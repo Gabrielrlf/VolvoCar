@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VolvoCar.Domain.Model;
+﻿using System.Linq;
 
 namespace VolvoCar.Infra.Service.Interface
 {

@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VolvoCar.Domain.Model;
 
 namespace VolvoCar.Test.Generator
 {
     public class TruckGenerator
     {
-        public static IEnumerable<object[]> GetDataRegisterPass()
+        public static IEnumerable<object[]> GetDataTruckPass()
         {
             yield return new object[]
            {
@@ -33,7 +30,7 @@ namespace VolvoCar.Test.Generator
         }
 
 
-        public static IEnumerable<object[]> GetDataRegisterFailed()
+        public static IEnumerable<object[]> GetDataTruckFailed()
         {
             yield return new object[]
            {
@@ -53,6 +50,19 @@ namespace VolvoCar.Test.Generator
             yield return new object[]
            {
               new Truck {Id = 14, ModelName = "FC", YearFabrication = DateTime.Now.Year, YearModel = DateTime.Now.Year, CreationDate = DateTime.Now, UpdateDate = DateTime.Now }
+           };
+        }
+
+        public static IEnumerable<object[]> GetUpdateData_Pass()
+        {
+            yield return new object[]
+           {
+                new Truck {Id = 2, ModelName = "FH", YearFabrication = DateTime.Now.Year, YearModel = DateTime.Now.Year, CreationDate = DateTime.Now, UpdateDate = DateTime.Now },
+           };
+
+            yield return new object[]
+           {
+              new Truck {Id = 1, ModelName = "FM", YearFabrication = DateTime.Now.Year, YearModel = DateTime.Now.Year, CreationDate = DateTime.Now, UpdateDate = DateTime.Now },
            };
         }
     }

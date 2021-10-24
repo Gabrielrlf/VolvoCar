@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VolvoCar.Domain.Model;
 using VolvoCar.Infra.Service.Interface;
 
 namespace VolvoCar.Infra.Service
@@ -27,17 +23,12 @@ namespace VolvoCar.Infra.Service
             dbContext.SaveChanges();
         }
 
-        public void Dispose()
-        {
-            dbContext.DisposeAsync();
-        }
+        public void Dispose() => dbContext.Dispose();
+        
 
         public T FindById(int? id) => dbContext.Find<T>(id);
 
-        public IQueryable<T> List()
-        {
-            return dbContext.Set<T>();
-        }
+        public IQueryable<T> List() => dbContext.Set<T>();
 
         public void Update(T obj)
         {

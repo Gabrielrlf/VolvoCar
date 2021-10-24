@@ -12,7 +12,13 @@ namespace VolvoCar.SharedKernel
             return isValid;
         }
 
+        public bool IsNull(object obj)
+        {
+            if (obj == null)
+                return true;
 
+            return false;
+        }
         public void ValidatedTruck(Truck truck)
         {
             if (!truck.ModelName.Equals("FM") && !truck.ModelName.Equals("FH"))

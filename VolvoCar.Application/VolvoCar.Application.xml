@@ -61,11 +61,6 @@
             <param name="id"></param>
             <param name="truck"></param>
         </member>
-        <member name="P:VolvoCar.Application.Controllers.HomeController.Privacy">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="M:VolvoCar.Application.Controllers.HomeController.Error">
             <summary>
             

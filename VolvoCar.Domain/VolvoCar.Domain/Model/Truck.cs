@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VolvoCar.Domain.Model
 {
     public class Truck : BaseEntity
     {
-        [Required, MaxLength(2), DisplayName("Modelo")]
+        [Required(ErrorMessage = "Escolha entre FH ou FM"), MaxLength(2), DisplayName("Modelo")]
         public string ModelName { get; set; }
 
-        [Required, DisplayName("Ano modelo")]
+        [Required(ErrorMessage = "O ano do modelo só pode ser o atual ou subsequente!"), DisplayName("Ano modelo")]
         public int YearModel { get; set; }
 
         [Required, DisplayName("Ano fab")]

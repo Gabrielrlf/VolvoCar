@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Linq;
-using System.Threading.Tasks;
 using VolvoCar.Domain.Exception;
 using VolvoCar.Domain.Model;
 using VolvoCar.Infra.Interface;
-using VolvoCar.Infra.Repository;
 using VolvoCar.SharedKernel;
 
 namespace VolvoCar.Core
@@ -17,10 +15,17 @@ namespace VolvoCar.Core
         public TruckService(ITruckRepository rep) => _rep = rep;
         public bool RegisterTruck(Truck truck)
         {
-            truckSK.ValidatedTruck(truck);
+            try
+            {
+                truckSK.ValidatedTruck(truck);
 
-            _rep.CreateTruck(truck);
-            return true;
+                _rep.CreateTruck(truck);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw new TruckException(e.Message);
+            }
         }
 
         public void DeleteTruck(int id)
@@ -37,11 +42,14 @@ namespace VolvoCar.Core
 
         public IQueryable<Truck> ListAllTruck() => _rep.ListTruck();
 
-        public void UpdateTruck(Truck truck)
+        public bool UpdateTruck(Truck truck)
         {
             try
             {
+                truckSK.ValidatedTruck(truck);
+
                 _rep.UpdateTruck(truck);
+                return true;
             }
             catch (Exception e)
             {
@@ -53,7 +61,7 @@ namespace VolvoCar.Core
         {
             Truck truck = _rep.FindById(id);
 
-            if (truck.Equals(null))
+            if (truckSK.IsNull(truck))
                 throw new TruckException($"Não encontrado caminhão para o Id {id}");
 
             return truck;
