@@ -26,12 +26,12 @@ Foi utilizado o xUnit para desenvolver os testes unitários, todas as orientaç�
 
 <table>
   <tr>
-    <td>ASP NET CORE</td>
+    <td>ASP NET CORE MVC</td>
     <td>C#</td>
     <td>EF CORE</td>
     <td>xUnit para testes unitários</td>
     <td>SQLite</td>
     <td>Repository Patterns</td>
-    <td>DDD</td>
+    <td>Modelagem DDD</td>
     <td> D.I </td>
 </table>
